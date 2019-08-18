@@ -1,0 +1,17 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+main{
+    width: 400px;
+    height: 500px;
+    position: relative;
+    margin: 0 auto;
+    margin-top: 20px;
+    border: solid 1px black;
+    background-color: #fff;
+}
+canvas{
+    width: 400px;
+    height: 500px;
+}
