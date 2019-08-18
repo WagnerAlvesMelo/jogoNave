@@ -7,6 +7,19 @@
 
     //RECURSOS DO JOGO =============================
 
+    //ARRAYS
+    var sprites = [];
+    var assetsToLoad = [];
+
+    //IMAGES
+    var img = new Image();
+    img.addEventListener('load',loadHandler,false);
+    img.src = "assets/images/img.png";
+    assetsToLoad.push(img);
+
+    //CONTADOR DE RECURSOS
+    var loadedAssets = 0;
+
     //ENTRADAS DAS TECLAS
     const LEFT = 37;
     const RIGHT = 39;
@@ -57,15 +70,35 @@
     },false);
 
     //FUNCOES=======================================
+    function loadHandler(){
+        loadedAssets ++;
+        if(loadedAssets === assetsToLoad.length){
+            img.removeEventListener('load',loadHandler,false);
+            //INICIA O JOGO
+            gameState = PAUSED;
+        }
+    }
+
     function loop(){
         requestAnimationFrame(loop,cnv);
+        //DEFINE AS ACOES COM BASE NO ESTADO DO JOGO
+        switch(gameState){
+            case LOADING:
+                console.log('LOADING...');
+                break;
+            case PLAYING:
+                update();
+                break;
+        }
+        render();
     }
     function update(){
-
+        
     }
     function render(){
         
     }
 
+    loop();
 
 }());
