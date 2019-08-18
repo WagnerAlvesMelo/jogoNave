@@ -57,4 +57,15 @@
     },false);
 
     //FUNCOES=======================================
+    function loop(){
+        requestAnimationFrame(loop,cnv);
+    }
+    function update(){
+
+    }
+    function render(){
+        
+    }
+
+
 }());
